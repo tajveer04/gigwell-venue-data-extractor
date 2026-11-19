@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 import csv
-
+from pathlib import Path
 from getpass import getpass
 
 # Ask for the user's own login details before opening the browser.
@@ -16,7 +16,8 @@ driver.maximize_window()
 driver.get("https://discover.gigwell.com/auth/login")
 
 # Open CSV file for writing
-with open(r'D:\project\working\gigwell.csv', mode="w", encoding="utf-8", newline="") as csvfile:
+output_file = Path(__file__).resolve().parent / "gigwell.csv"
+with open(output_file, mode="w", encoding="utf-8", newline="") as csvfile:
     writer = csv.writer(csvfile)
     writer.writerow([
         "name", "address", "email", "phone", "capacity", "avg",
