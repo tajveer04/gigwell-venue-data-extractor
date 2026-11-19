@@ -217,6 +217,8 @@ tempCodeRunnerFile.py
 # Marimo
 marimo/_static/
 marimo/_lsp/
+# Generated venue data
+gigwell.csv
 __marimo__/
 
 # Streamlit
