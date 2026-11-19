@@ -29,10 +29,11 @@ python -m pip install -r requirements.txt
 This is an earlier project being prepared for portfolio use.
 It has not been retested against the current website.
 
-Before running:
-- Replace the old login values with your own authorized account.
-- Update the CSV output path for your computer.
-- Review and update website selectors if needed.
+- Run the script from a terminal: python main.py
+- Enter your own authorized Gigwell email and password when prompted.
+- The password is hidden while typing.
+- Output is saved as gigwell.csv beside main.py.
+- Each run overwrites the existing gigwell.csv file.
 
 The current script uses fixed delays and broad exception handling.
 Missing fields or navigation failures may produce incomplete results.
