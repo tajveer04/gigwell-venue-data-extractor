@@ -1,43 +1,120 @@
-# gigwell-venue-data-extractor
-Python Selenium automation for collecting venue information and exporting it to CSV.
 # Gigwell Venue Data Extractor
 
-A Python and Selenium project developed to collect venue
-information from Gigwell Discover and export it to CSV.
+A Python and Selenium browser automation project that collects
+venue information from Gigwell Discover and exports it to CSV.
+
+Originally developed for a data collection project and now
+being prepared for portfolio presentation.
 
 ## Features
 
-- Applies search keywords and clears the location filter.
-- Collects venue names, addresses, emails, and phone numbers.
-- Extracts capacity and average ticket sales when available.
-- Collects up to seven directory contacts per venue.
-- Navigates through result pages.
-- Exports collected information to CSV.
+- Logs in using credentials entered by the user.
+- Applies keyword exclusions to the venue search.
+- Clears the location filter.
+- Collects venue details and up to seven directory contacts.
+- Navigates through search result pages.
+- Exports results to a structured CSV file.
 
-## Tools
+## Collected Fields
 
-- Python
-- Selenium
+Venue information:
+- Name
+- Address
+- Email
+- Phone
+- Capacity
+- Average ticket sales, when available
+
+Directory contacts:
+- Name
+- Job title
+- Phone
+- Email
+
+## Requirements
+
+- Python 3
 - Google Chrome
+- An authorized Gigwell Discover account with access to the data
+- Internet connection
 
 ## Installation
 
+Download the repository and open a terminal in its folder.
+
+Install the dependency:
+
+```bash
 python -m pip install -r requirements.txt
+```
 
-## Current Status
+## Usage
 
-This is an earlier project being prepared for portfolio use.
-It has not been retested against the current website.
+Run:
 
-- Run the script from a terminal: python main.py
-- Enter your own authorized Gigwell email and password when prompted.
-- The password is hidden while typing.
-- Output is saved as gigwell.csv beside main.py.
-- Each run overwrites the existing gigwell.csv file.
+```bash
+python main.py
+```
 
-The current script uses fixed delays and broad exception handling.
-Missing fields or navigation failures may produce incomplete results.
+Enter your own Gigwell email and password when prompted.
+The password is hidden while typing.
 
-## Data
+The script opens Chrome and starts the collection workflow.
+
+## Output
+
+Results are saved as `gigwell.csv` in the same folder as `main.py`.
+
+Each run overwrites the existing output file.
+Move or rename previous results before running again.
+
+## Search Settings
+
+The current keyword exclusions are:
+
+- -nightclub
+- -bar
+- -restaurant
+- -club
+
+These can be changed in the `keywords` list in `main.py`.
+
+The minimum-capacity filter is currently commented out.
+
+## Project Files
+
+- `main.py` — browser automation and CSV export
+- `requirements.txt` — Python dependency
+- `.gitignore` — excludes generated data and local files
+- `README.md` — project documentation
+
+## Current Status and Limitations
+
+This is a historical project. The updated version has not been
+retested against the current Gigwell website.
+
+- Website layout changes may require XPath updates.
+- Fixed delays may be insufficient on slower connections.
+- Missing fields are generally left blank.
+- If a directory contact field is missing, the entire contact
+  may be skipped.
+- Navigation can invalidate stored venue elements and cause
+  listings to be skipped.
+- Pagination errors may be reported as completion.
+- Broad exception handling can result in incomplete output.
+
+Review and test the script before relying on its results.
+
+## Data and Credentials
+
+Login credentials are entered at runtime rather than stored
+in the current source code.
 
 Client datasets and contact lists are not included.
+
+Use only with an account and data access you are authorized
+to use, following the service's applicable terms.
+
+## Author
+
+Fayez Mahmud
